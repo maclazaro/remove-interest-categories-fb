@@ -1,0 +1,84 @@
+{
+  "Name": "remove-interest-categories-fb",
+  "CreationDate": "2021-7-31",
+  "Commands": [
+    {
+      "Command": "open",
+      "Target": "https://www.facebook.com/adpreferences/?section=interests",
+      "Value": "",
+      "Description": "GO TO INTEREST CATEGORIES"
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=//div[2]/i",
+      "Value": "",
+      "Description": "CLICK See All Interests"
+    },
+    {
+      "Command": "store",
+      "Target": "1",
+      "Value": "counter",
+      "Description": "INITIALIZE counter"
+    },
+    {
+      "Command": "echo",
+      "Target": "INITIALIZE = ${counter}",
+      "Value": "",
+      "Description": "INITIALIZE counter"
+    },
+    {
+      "Command": "store",
+      "Target": "xpath=//div/div/div/div/div/div[2]/div/div/div/div/div/div/span/span",
+      "Value": "xpath",
+      "Description": "SET Remove button dynamically"
+    },
+    {
+      "Command": "while_v2",
+      "Target": "true",
+      "Value": "",
+      "Description": "LOOP"
+    },
+    {
+      "Command": "echo",
+      "Target": "ITERATION: ${counter}",
+      "Value": "",
+      "Description": "LOOP #"
+    },
+    {
+      "Command": "echo",
+      "Target": "BUTTON: ${xpath}",
+      "Value": "",
+      "Description": "LOG BUTTON"
+    },
+    {
+      "Command": "click",
+      "Target": "${xpath}",
+      "Value": "",
+      "Description": "CLICK Remove"
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return Number(${counter})+1",
+      "Value": "counter",
+      "Description": "INCREMENT COUNTER"
+    },
+    {
+      "Command": "echo",
+      "Target": "INCREMENT: ${counter} ",
+      "Value": "",
+      "Description": "LOG INCREMENT"
+    },
+    {
+      "Command": "store",
+      "Target": "xpath=//div[${counter}]/div/div/div/div/div[2]/div/div/div/div/div/div/span/span",
+      "Value": "xpath",
+      "Description": "SET Remove button dynamically"
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": "END"
+    }
+  ]
+}
